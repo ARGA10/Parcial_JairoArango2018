@@ -1,1 +1,28 @@
 Parcial 25/04/2018 por Jairo Andres Arango Galeano
+
+plsql.execute <<-SQL
+ -- CREACION TABLESPACE SIN PUNTO Y COMA
+ -- EJEMPLO CREATE TABLESPACE ...
+
+	CREATE TABLESPACE Parcial20
+        DATAFILE 'D:\Project\AdminDatabase\Parcial20' SIZE 10M
+		
+
+plsql.execute <<-SQL
+ -- CREACION PERFIL SIN PUNTO Y COMA
+ -- EJEMPLO CREATE PROFILE ...
+
+    CREATE PROFILE PRF_Parcial LIMIT
+		SESSIONS_PER_USER    2
+        PASSWORD_LIFE_TIME  100
+        IDLE_TIME           30
+
+
+plsql.execute <<-SQL
+ -- CREACION USUARIO SIN PUNTO Y COMA
+ -- EJEMPLO CREATE USER
+
+    CREATE USER parcial_user1
+		IDENTIFIED BY parcial
+		PROFILE PRF_Parcial
+		DEFAULT TABLESPACE Parcial20
